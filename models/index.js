@@ -19,5 +19,11 @@ db.homeBanner = require("../models/homeBanner/homeBanner")(
   db.sequelize,
   DataTypes
 );
+db.homeSlider = require("../models/homeSlider/homeSlider")(
+  db.sequelize,
+  DataTypes
+);
+db.aboutUs = require("../models/aboutUs/aboutUs")(db.sequelize, DataTypes);
+db.howItWorks = require("../models/howItWorks/howItWorks")(db.sequelize, DataTypes);
 
 module.exports = db;

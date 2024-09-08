@@ -5,7 +5,7 @@ const { quintupleUpload } = require("../../middlewares/upload");
 
 router.post("/create", quintupleUpload, homeBanner.createHomeBanner);
 router.get("/", homeBanner.getAllHomeBanner);
-router.delete("/:id", auth("admin"), homeBanner.deleteHomeBanner);
-router.patch("/:id", homeBanner.updateHomeBanner);
+router.delete("/:id", homeBanner.deleteHomeBanner);
+router.patch("/:id",quintupleUpload, homeBanner.updateHomeBanner);
 
 module.exports = router;

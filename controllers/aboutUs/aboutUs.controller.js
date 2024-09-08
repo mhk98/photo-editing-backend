@@ -1,24 +1,19 @@
 const db = require("../../models");
-const HomeBanner = db.homeBanner;
+const AboutUs = db.aboutUs;
 
-exports.createHomeBanner = async (req, res) => {
+exports.createAboutUs = async (req, res) => {
   try {
-    const { image1, image2, image3, image4, image5 } = req.files || {};
-    const data = {
-      image1: image1 && image1[0] ? image1[0].path || "" : "",
-      image2: image2 && image2[0] ? image2[0].path || "" : "",
-      image3: image3 && image3[0] ? image3[0].path || "" : "",
-      image4: image4 && image4[0] ? image4[0].path || "" : "",
-      image5: image5 && image5[0] ? image5[0].path || "" : "",
-    };
+    const image = req.file ? req.file.path : ""; // Correctly assigning the image path
+
+    const data = { image }; // Store the image path in the data object
 
     console.log(data);
 
-    const result = await HomeBanner.create(data);
+    const result = await AboutUs.create(data); // Creating AboutUs with image path
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully Created HomeBanner",
+      message: "Successfully Created AboutUs",
       data: result,
     });
   } catch (error) {
@@ -30,13 +25,13 @@ exports.createHomeBanner = async (req, res) => {
   }
 };
 
-exports.getAllHomeBanner = async (req, res) => {
+exports.getAllAboutUs = async (req, res) => {
   try {
-    const result = await HomeBanner.findAll();
+    const result = await AboutUs.findAll();
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully got all HomeBanner",
+      message: "Successfully got all AboutUs",
       data: result,
     });
   } catch (error) {
@@ -76,11 +71,11 @@ exports.getAllHomeBanner = async (req, res) => {
 //   }
 // };
 
-exports.deleteHomeBanner = async (req, res) => {
+exports.deleteAboutUs = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const result = await HomeBanner.destroy({
+    const result = await AboutUs.destroy({
       where: { Id: id },
     });
 
@@ -92,7 +87,7 @@ exports.deleteHomeBanner = async (req, res) => {
     }
     res.status(200).send({
       status: "Success",
-      message: "Successfully delete HomeBanner",
+      message: "Successfully delete AboutUs",
       data: result,
     });
   } catch (error) {
@@ -104,29 +99,24 @@ exports.deleteHomeBanner = async (req, res) => {
   }
 };
 
-exports.updateHomeBanner = async (req, res) => {
+exports.updateAboutUs = async (req, res) => {
   try {
     const { id } = req.params;
-    const banner = await HomeBanner.findOne({ where: { Id: id } });
+    const AboutUs = await AboutUs.findOne({ where: { Id: id } });
 
-    if (!banner) {
+    if (!AboutUs) {
       return res.status(404).send({
         status: "fail",
-        message: "HomeBanner not found",
+        message: "AboutUs not found",
       });
     }
 
-    const { image1, image2, image3, image4, image5 } = req.files || {};
-
+    const { image } = req.files || {};
     const data = {
-      image1: image1 && image1[0] ? image1[0].path : banner.image1,
-      image2: image2 && image2[0] ? image2[0].path : banner.image2,
-      image3: image3 && image3[0] ? image3[0].path : banner.image3,
-      image4: image4 && image4[0] ? image4[0].path : banner.image4,
-      image5: image5 && image5[0] ? image5[0].path : banner.image5,
+      image: image && image[0] ? image[0].path || "" : "",
     };
 
-    const result = await HomeBanner.update(data, {
+    const result = await HomeSlider.update(data, {
       where: { Id: id },
     });
 
@@ -139,7 +129,7 @@ exports.updateHomeBanner = async (req, res) => {
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully updated HomeBanner",
+      message: "Successfully updated HomeSlider",
       data: result,
     });
   } catch (error) {
