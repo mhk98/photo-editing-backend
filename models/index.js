@@ -24,6 +24,13 @@ db.homeSlider = require("../models/homeSlider/homeSlider")(
   DataTypes
 );
 db.aboutUs = require("../models/aboutUs/aboutUs")(db.sequelize, DataTypes);
-db.howItWorks = require("../models/howItWorks/howItWorks")(db.sequelize, DataTypes);
+db.howItWorks = require("../models/howItWorks/howItWorks")(
+  db.sequelize,
+  DataTypes
+);
+db.whyChooseUs = require("../models/whyChooseUs/whyChooseUs")(
+  db.sequelize,
+  DataTypes
+);
 
 module.exports = db;
