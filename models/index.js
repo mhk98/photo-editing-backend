@@ -32,5 +32,9 @@ db.whyChooseUs = require("../models/whyChooseUs/whyChooseUs")(
   db.sequelize,
   DataTypes
 );
+db.stunningQuality = require("../models/stunningQuality/stunningQuality")(
+  db.sequelize,
+  DataTypes
+);
 
 module.exports = db;
