@@ -36,5 +36,19 @@ db.stunningQuality = require("../models/stunningQuality/stunningQuality")(
   db.sequelize,
   DataTypes
 );
+db.testimonial = require("../models/testimonial/testimonial")(
+  db.sequelize,
+  DataTypes
+);
+db.pricingPlan = require("../models/pricingPlan/pricingPlan")(
+  db.sequelize,
+  DataTypes
+);
+db.news = require("../models/news/news")(db.sequelize, DataTypes);
+db.removeImage = require("../models/removeImage/removeImage")(
+  db.sequelize,
+  DataTypes
+);
+db.clients = require("../models/clients/clients")(db.sequelize, DataTypes);
 
 module.exports = db;
