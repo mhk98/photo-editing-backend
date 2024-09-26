@@ -50,5 +50,10 @@ db.removeImage = require("../models/removeImage/removeImage")(
   DataTypes
 );
 db.clients = require("../models/clients/clients")(db.sequelize, DataTypes);
+db.clippingPathPrice = require("../models/clippingPathPrice/clippingPathPrice")(db.sequelize, DataTypes);
+db.clippingPath = require("../models/clippingPath/clippingPath")(db.sequelize, DataTypes);
+db.clippingPathHowItWorks = require("../models/clippingPathHowItWorks/clippingPathHowItWorks")(db.sequelize, DataTypes);
+db.clippingPathProjects = require("../models/clippingPathProjects/clippingPathProjects")(db.sequelize, DataTypes);
+db.clippingPathTestimonial = require("../models/clippingPathTestimonial/clippingPathTestimonial")(db.sequelize, DataTypes);
 
 module.exports = db;

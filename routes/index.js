@@ -10,6 +10,12 @@ const testimonial = require("./testimonial");
 const pricingPlan = require("./pricingPlan");
 const news = require("./news");
 const removeImage = require("./removeImage");
+const clients = require("./clients");
+const clippingPath = require("./clippingPath");
+const clippingPathPrice = require("./clippingPathPrice");
+const clippingPathTestimonial = require("./clippingPathTestimonial");
+const clippingPathHowItWorks = require("./clippingPathHowItWorks");
+const clippingPathProjects = require("./clippingPathProjects");
 
 router.use("/user", user);
 router.use("/homeBanner", homeBanner);
@@ -22,5 +28,11 @@ router.use("/testimonial", testimonial);
 router.use("/pricingPlan", pricingPlan);
 router.use("/news", news);
 router.use("/removeImage", removeImage);
+router.use("/clients", clients);
+router.use("/clippingPath", clippingPath);
+router.use("/clippingPathPrice", clippingPathPrice);
+router.use("/clippingPathTestimonial", clippingPathTestimonial);
+router.use("/clippingPathHowItWorks", clippingPathHowItWorks);
+router.use("/clippingPathProjects", clippingPathProjects);
 
 module.exports = router;
