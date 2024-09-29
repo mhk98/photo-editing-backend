@@ -2,7 +2,7 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 
 module.exports = (sequelize, DataTypes, Sequelize) => {
-  const ClippingPathPrice = sequelize.define("ClippingPathPrice", {
+  const ImageRetouchingPrice = sequelize.define("ImageRetouchingPrice", {
     Id: {
       type: DataTypes.INTEGER(10),
       primaryKey: true,
@@ -40,5 +40,5 @@ module.exports = (sequelize, DataTypes, Sequelize) => {
     },
   });
 
-  return ClippingPathPrice;
+  return ImageRetouchingPrice;
 };

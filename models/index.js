@@ -5,7 +5,7 @@ const db = require("../db/db");
 const { DataTypes } = require("sequelize");
 
 db.sequelize
-  .sync({ force: false })
+  .sync({ force: true })
   .then(() => {
     console.log("Connection re-synced");
   })
@@ -56,4 +56,9 @@ db.clippingPathHowItWorks = require("../models/clippingPathHowItWorks/clippingPa
 db.clippingPathProjects = require("../models/clippingPathProjects/clippingPathProjects")(db.sequelize, DataTypes);
 db.clippingPathTestimonial = require("../models/clippingPathTestimonial/clippingPathTestimonial")(db.sequelize, DataTypes);
 
+db.backgroundRemovalPrice = require("../models/backgroundRemovalPrice/backgroundRemovalPrice")(db.sequelize, DataTypes);
+db.backgroundRemoval = require("../models/backgroundRemoval/backgroundRemoval")(db.sequelize, DataTypes);
+db.backgroundRemovalHowItWorks = require("../models/backgroundRemovalHowItWorks/backgroundRemovalHowItWorks")(db.sequelize, DataTypes);
+db.backgroundRemovalProjects = require("../models/backgroundRemovalProjects/backgroundRemovalProjects")(db.sequelize, DataTypes);
+db.backgroundRemovalTestimonial = require("../models/backgroundRemovalTestimonial/backgroundRemovalTestimonial")(db.sequelize, DataTypes);
 module.exports = db;

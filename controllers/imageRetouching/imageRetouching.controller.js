@@ -1,7 +1,7 @@
 const db = require("../../models");
-const ClippingPath = db.clippingPath;
+const ImageRetouching = db.imageRetouching;
 
-exports.createClippingPath = async (req, res) => {
+exports.createImageRetouching = async (req, res) => {
   try {
     const image = req.file ? req.file.path : ""; // Correctly assigning the image path
 
@@ -9,11 +9,11 @@ exports.createClippingPath = async (req, res) => {
 
     console.log(data);
 
-    const result = await ClippingPath.create(data);
+    const result = await ImageRetouching.create(data);
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully Created ClippingPath",
+      message: "Successfully Created ImageRetouching",
       data: result,
     });
   } catch (error) {
@@ -25,13 +25,13 @@ exports.createClippingPath = async (req, res) => {
   }
 };
 
-exports.getAllClippingPath = async (req, res) => {
+exports.getAllImageRetouching = async (req, res) => {
   try {
-    const result = await ClippingPath.findAll();
+    const result = await ImageRetouching.findAll();
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully got all ClippingPath",
+      message: "Successfully got all ImageRetouching",
       data: result,
     });
   } catch (error) {
@@ -71,11 +71,11 @@ exports.getAllClippingPath = async (req, res) => {
 //   }
 // };
 
-exports.deleteClippingPath = async (req, res) => {
+exports.deleteImageRetouching = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const result = await ClippingPath.destroy({
+    const result = await ImageRetouching.destroy({
       where: { Id: id },
     });
 
@@ -87,7 +87,7 @@ exports.deleteClippingPath = async (req, res) => {
     }
     res.status(200).send({
       status: "Success",
-      message: "Successfully delete ClippingPath",
+      message: "Successfully delete ImageRetouching",
       data: result,
     });
   } catch (error) {
@@ -99,15 +99,15 @@ exports.deleteClippingPath = async (req, res) => {
   }
 };
 
-exports.updateClippingPath = async (req, res) => {
+exports.updateImageRetouching = async (req, res) => {
   try {
     const { id } = req.params;
-    const banner = await ClippingPath.findOne({ where: { Id: id } });
+    const banner = await ImageRetouching.findOne({ where: { Id: id } });
 
     if (!banner) {
       return res.status(404).send({
         status: "fail",
-        message: "ClippingPath not found",
+        message: "ImageRetouching not found",
       });
     }
 
@@ -117,7 +117,7 @@ exports.updateClippingPath = async (req, res) => {
 
     console.log(data);
 
-    const result = await ClippingPath.update(data, {
+    const result = await ImageRetouching.update(data, {
       where: { Id: id },
     });
 
@@ -130,7 +130,7 @@ exports.updateClippingPath = async (req, res) => {
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully updated ClippingPath",
+      message: "Successfully updated ImageRetouching",
       data: result,
     });
   } catch (error) {

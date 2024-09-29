@@ -2,7 +2,7 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 
 module.exports = (sequelize, DataTypes, Sequelize) => {
-  const ClippingPathTestimonial = sequelize.define("ClippingPathTestimonial", {
+  const GhostMannequinTestimonial = sequelize.define("GhostMannequinTestimonial", {
     Id: {
       type: DataTypes.INTEGER(10),
       primaryKey: true,
@@ -33,5 +33,5 @@ module.exports = (sequelize, DataTypes, Sequelize) => {
    
   });
 
-  return ClippingPathTestimonial;
+  return GhostMannequinTestimonial;
 };

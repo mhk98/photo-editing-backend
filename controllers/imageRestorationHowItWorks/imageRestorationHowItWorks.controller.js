@@ -1,7 +1,7 @@
 const db = require("../../models");
-const ClippingPathHowItWorks = db.clippingPathHowItWorks;
+const ImageRestorationHowItWorks = db.ImageRestorationHowItWorks;
 
-exports.createClippingPathHowItWorks = async (req, res) => {
+exports.createImageRestorationHowItWorks = async (req, res) => {
   try {
     const image = req.file ? req.file.path : ""; // Correctly assigning the image path
 
@@ -11,11 +11,11 @@ exports.createClippingPathHowItWorks = async (req, res) => {
 
     console.log(data);
 
-    const result = await ClippingPathHowItWorks.create(data);
+    const result = await ImageRestorationHowItWorks.create(data);
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully Created ClippingPathHowItWorks",
+      message: "Successfully Created ImageRestorationHowItWorks",
       data: result,
     });
   } catch (error) {
@@ -27,13 +27,13 @@ exports.createClippingPathHowItWorks = async (req, res) => {
   }
 };
 
-exports.getAllClippingPathHowItWorks = async (req, res) => {
+exports.getAllImageRestorationHowItWorks = async (req, res) => {
   try {
-    const result = await ClippingPathHowItWorks.findAll();
+    const result = await ImageRestorationHowItWorks.findAll();
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully got all ClippingPathHowItWorks",
+      message: "Successfully got all ImageRestorationHowItWorks",
       data: result,
     });
   } catch (error) {
@@ -73,11 +73,11 @@ exports.getAllClippingPathHowItWorks = async (req, res) => {
 //   }
 // };
 
-exports.deleteClippingPathHowItWorks = async (req, res) => {
+exports.deleteImageRestorationHowItWorks = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const result = await ClippingPathHowItWorks.destroy({
+    const result = await ImageRestorationHowItWorks.destroy({
       where: { Id: id },
     });
 
@@ -89,7 +89,7 @@ exports.deleteClippingPathHowItWorks = async (req, res) => {
     }
     res.status(200).send({
       status: "Success",
-      message: "Successfully delete ClippingPathHowItWorks",
+      message: "Successfully delete ImageRestorationHowItWorks",
       data: result,
     });
   } catch (error) {
@@ -101,15 +101,15 @@ exports.deleteClippingPathHowItWorks = async (req, res) => {
   }
 };
 
-exports.updateClippingPathHowItWorks = async (req, res) => {
+exports.updateImageRestorationHowItWorks = async (req, res) => {
   try {
     const { id } = req.params;
-    const banner = await ClippingPathHowItWorks.findOne({ where: { Id: id } });
+    const banner = await ImageRestorationHowItWorks.findOne({ where: { Id: id } });
 
     if (!banner) {
       return res.status(404).send({
         status: "fail",
-        message: "ClippingPathHowItWorks not found",
+        message: "ImageRestorationHowItWorks not found",
       });
     }
 
@@ -119,7 +119,7 @@ exports.updateClippingPathHowItWorks = async (req, res) => {
 
     console.log(data);
 
-    const result = await ClippingPathHowItWorks.update(data, {
+    const result = await ImageRestorationHowItWorks.update(data, {
       where: { Id: id },
     });
 
@@ -132,7 +132,7 @@ exports.updateClippingPathHowItWorks = async (req, res) => {
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully updated ClippingPathHowItWorks",
+      message: "Successfully updated ImageRestorationHowItWorks",
       data: result,
     });
   } catch (error) {

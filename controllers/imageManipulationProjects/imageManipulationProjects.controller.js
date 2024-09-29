@@ -1,7 +1,7 @@
 const db = require("../../models");
-const ClippingPathProjects = db.clippingPathProjects;
+const ImageManipulationProjects = db.imageManipulationProjects;
 
-exports.createClippingPathProjects = async (req, res) => {
+exports.createImageManipulationProjects = async (req, res) => {
   try {
     const image = req.file ? req.file.path : ""; // Correctly assigning the image path
 
@@ -11,11 +11,11 @@ exports.createClippingPathProjects = async (req, res) => {
 
     console.log(data);
 
-    const result = await ClippingPathProjects.create(data);
+    const result = await ImageManipulationProjects.create(data);
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully Created ClippingPathProjects",
+      message: "Successfully Created ImageManipulationProjects",
       data: result,
     });
   } catch (error) {
@@ -27,13 +27,13 @@ exports.createClippingPathProjects = async (req, res) => {
   }
 };
 
-exports.getAllClippingPathProjects = async (req, res) => {
+exports.getAllImageManipulationProjects = async (req, res) => {
   try {
-    const result = await ClippingPathProjects.findAll();
+    const result = await ImageManipulationProjects.findAll();
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully got all ClippingPathProjects",
+      message: "Successfully got all ImageManipulationProjects",
       data: result,
     });
   } catch (error) {
@@ -73,11 +73,11 @@ exports.getAllClippingPathProjects = async (req, res) => {
 //   }
 // };
 
-exports.deleteClippingPathProjects = async (req, res) => {
+exports.deleteImageManipulationProjects = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const result = await ClippingPathProjects.destroy({
+    const result = await ImageManipulationProjects.destroy({
       where: { Id: id },
     });
 
@@ -89,7 +89,7 @@ exports.deleteClippingPathProjects = async (req, res) => {
     }
     res.status(200).send({
       status: "Success",
-      message: "Successfully delete ClippingPathProjects",
+      message: "Successfully delete ImageManipulationProjects",
       data: result,
     });
   } catch (error) {
@@ -101,15 +101,15 @@ exports.deleteClippingPathProjects = async (req, res) => {
   }
 };
 
-exports.updateClippingPathProjects = async (req, res) => {
+exports.updateImageManipulationProjects = async (req, res) => {
   try {
     const { id } = req.params;
-    const banner = await ClippingPathProjects.findOne({ where: { Id: id } });
+    const banner = await ImageManipulationProjects.findOne({ where: { Id: id } });
 
     if (!banner) {
       return res.status(404).send({
         status: "fail",
-        message: "ClippingPathProjects not found",
+        message: "ImageManipulationProjects not found",
       });
     }
 
@@ -119,7 +119,7 @@ exports.updateClippingPathProjects = async (req, res) => {
 
     console.log(data);
 
-    const result = await ClippingPathProjects.update(data, {
+    const result = await ImageManipulationProjects.update(data, {
       where: { Id: id },
     });
 
@@ -132,7 +132,7 @@ exports.updateClippingPathProjects = async (req, res) => {
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully updated ClippingPathProjects",
+      message: "Successfully updated ImageManipulationProjects",
       data: result,
     });
   } catch (error) {
