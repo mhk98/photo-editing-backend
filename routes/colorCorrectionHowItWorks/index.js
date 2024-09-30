@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const ClippingPathHowItWorks = require("../../controllers/clippingPathHowItWorks/clippingPathHowItWorks");
+const ColorCorrectionHowItWorks = require("../../controllers/colorCorrectionHowItWorks/colorCorrectionHowItWorks.controller");
 const auth = require("../../middlewares/auth");
 const { singleUpload } = require("../../middlewares/upload");
 
-router.post("/create", singleUpload, ClippingPathHowItWorks.createClippingPathHowItWorks);
-router.get("/", ClippingPathHowItWorks.getAllClippingPathHowItWorks);
-router.delete("/:id", ClippingPathHowItWorks.deleteClippingPathHowItWorks);
-router.patch("/:id",singleUpload, ClippingPathHowItWorks.updateClippingPathHowItWorks);
+router.post("/create", singleUpload, ColorCorrectionHowItWorks.createColorCorrectionHowItWorks);
+router.get("/", ColorCorrectionHowItWorks.getAllColorCorrectionHowItWorks);
+router.delete("/:id", ColorCorrectionHowItWorks.deleteColorCorrectionHowItWorks);
+router.patch("/:id",singleUpload, ColorCorrectionHowItWorks.updateColorCorrectionHowItWorks);
 
 module.exports = router;

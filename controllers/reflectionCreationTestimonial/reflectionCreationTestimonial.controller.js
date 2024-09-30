@@ -1,7 +1,7 @@
 const db = require("../../models");
-const ClippingPathTestimonial = db.clippingPathTestimonial;
+const ReflectionCreationTestimonial = db.reflectionCreationTestimonial;
 
-exports.createClippingPathTestimonial = async (req, res) => {
+exports.createReflectionCreationTestimonial = async (req, res) => {
   try {
     const image = req.file ? req.file.path : ""; // Correctly assigning the image path
     const {name, title, country, description } = req.body;
@@ -9,11 +9,11 @@ exports.createClippingPathTestimonial = async (req, res) => {
 
     console.log(data);
 
-    const result = await ClippingPathTestimonial.create(data); // Creating AboutUs with image path
+    const result = await ReflectionCreationTestimonial.create(data); // Creating AboutUs with image path
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully Created ClippingPathTestimonial",
+      message: "Successfully Created ReflectionCreationTestimonial",
       data: result,
     });
   } catch (error) {
@@ -25,13 +25,13 @@ exports.createClippingPathTestimonial = async (req, res) => {
   }
 };
 
-exports.getAllClippingPathTestimonial = async (req, res) => {
+exports.getAllReflectionCreationTestimonial = async (req, res) => {
   try {
-    const result = await ClippingPathTestimonial.findAll();
+    const result = await ReflectionCreationTestimonial.findAll();
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully got all ClippingPathTestimonial",
+      message: "Successfully got all ReflectionCreationTestimonial",
       data: result,
     });
   } catch (error) {
@@ -71,11 +71,11 @@ exports.getAllClippingPathTestimonial = async (req, res) => {
 //   }
 // };
 
-exports.deleteClippingPathTestimonial = async (req, res) => {
+exports.deleteReflectionCreationTestimonial = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const result = await ClippingPathTestimonial.destroy({
+    const result = await ReflectionCreationTestimonial.destroy({
       where: { Id: id },
     });
 
@@ -87,7 +87,7 @@ exports.deleteClippingPathTestimonial = async (req, res) => {
     }
     res.status(200).send({
       status: "Success",
-      message: "Successfully delete ClippingPathTestimonial",
+      message: "Successfully delete ReflectionCreationTestimonial",
       data: result,
     });
   } catch (error) {
@@ -100,7 +100,7 @@ exports.deleteClippingPathTestimonial = async (req, res) => {
 };
 
 
-exports.updateClippingPathTestimonial = async (req, res) => {
+exports.updateReflectionCreationTestimonial = async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -108,12 +108,12 @@ exports.updateClippingPathTestimonial = async (req, res) => {
     const {name, title, country, description } = req.body;
 
 
-    const AboutUs = await ClippingPathTestimonial.findOne({ where: { Id: id } });
+    const AboutUs = await ReflectionCreationTestimonial.findOne({ where: { Id: id } });
 
     if (!AboutUs) {
       return res.status(404).send({
         status: "fail",
-        message: "ClippingPathTestimonial not found",
+        message: "ReflectionCreationTestimonial not found",
       });
     }
 
@@ -127,7 +127,7 @@ exports.updateClippingPathTestimonial = async (req, res) => {
       image: req.file === undefined ? undefined : req.file.path,
     };
 
-    const result = await ClippingPathTestimonial.update(data, {
+    const result = await ReflectionCreationTestimonial.update(data, {
       where: { Id: id },
     });
 
@@ -140,7 +140,7 @@ exports.updateClippingPathTestimonial = async (req, res) => {
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully updated ClippingPathTestimonial",
+      message: "Successfully updated ReflectionCreationTestimonial",
       data: result,
     });
   } catch (error) {

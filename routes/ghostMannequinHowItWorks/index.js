@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const ClippingPathHowItWorks = require("../../controllers/clippingPathHowItWorks/clippingPathHowItWorks");
+const GhostMannequinHowItWorks = require("../../controllers/ghostMannequinHowItWorks/ghostMannequinHowItWorks");
 const auth = require("../../middlewares/auth");
 const { singleUpload } = require("../../middlewares/upload");
 
-router.post("/create", singleUpload, ClippingPathHowItWorks.createClippingPathHowItWorks);
-router.get("/", ClippingPathHowItWorks.getAllClippingPathHowItWorks);
-router.delete("/:id", ClippingPathHowItWorks.deleteClippingPathHowItWorks);
-router.patch("/:id",singleUpload, ClippingPathHowItWorks.updateClippingPathHowItWorks);
+router.post("/create", singleUpload, GhostMannequinHowItWorks.createGhostMannequinHowItWorks);
+router.get("/", GhostMannequinHowItWorks.getAllGhostMannequinHowItWorks);
+router.delete("/:id", GhostMannequinHowItWorks.deleteGhostMannequinHowItWorks);
+router.patch("/:id",singleUpload, GhostMannequinHowItWorks.updateGhostMannequinHowItWorks);
 
 module.exports = router;

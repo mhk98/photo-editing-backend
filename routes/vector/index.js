@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const ClippingPath = require("../../controllers/clippingPath/clippingPath.controller");
+const Vector = require("../../controllers/vector/vector.controller");
 const auth = require("../../middlewares/auth");
 const { singleUpload } = require("../../middlewares/upload");
 
-router.post("/create", singleUpload, ClippingPath.createClippingPath);
-router.get("/", ClippingPath.getAllClippingPath);
-router.delete("/:id", ClippingPath.deleteClippingPath);
-router.patch("/:id",singleUpload, ClippingPath.updateClippingPath);
+router.post("/create", singleUpload, Vector.createVector);
+router.get("/", Vector.getAllVector);
+router.delete("/:id", Vector.deleteVector);
+router.patch("/:id",singleUpload, Vector.updateVector);
 
 module.exports = router;

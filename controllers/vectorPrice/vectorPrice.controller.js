@@ -1,7 +1,7 @@
 const db = require("../../models");
-const ClippingPathPrice = db.clippingPathPrice;
+const VectorPrice = db.vectorPrice;
 
-exports.createClippingPathPrice = async (req, res) => {
+exports.createVectorPrice = async (req, res) => {
   try {
     const image = req.file ? req.file.path : ""; // Correctly assigning the image path
     const { title, price, feature1, feature2, feature3, feature4 } = req.body;
@@ -9,11 +9,11 @@ exports.createClippingPathPrice = async (req, res) => {
 
     console.log(data);
 
-    const result = await ClippingPathPrice.create(data); // Creating AboutUs with image path
+    const result = await VectorPrice.create(data); // Creating AboutUs with image path
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully Created ClippingPathPrice",
+      message: "Successfully Created VectorPrice",
       data: result,
     });
   } catch (error) {
@@ -25,13 +25,13 @@ exports.createClippingPathPrice = async (req, res) => {
   }
 };
 
-exports.getAllClippingPathPrice = async (req, res) => {
+exports.getAllVectorPrice = async (req, res) => {
   try {
-    const result = await ClippingPathPrice.findAll();
+    const result = await VectorPrice.findAll();
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully got all ClippingPathPrice",
+      message: "Successfully got all VectorPrice",
       data: result,
     });
   } catch (error) {
@@ -71,11 +71,11 @@ exports.getAllClippingPathPrice = async (req, res) => {
 //   }
 // };
 
-exports.deleteClippingPathPrice = async (req, res) => {
+exports.deleteVectorPrice = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const result = await ClippingPathPrice.destroy({
+    const result = await VectorPrice.destroy({
       where: { Id: id },
     });
 
@@ -87,7 +87,7 @@ exports.deleteClippingPathPrice = async (req, res) => {
     }
     res.status(200).send({
       status: "Success",
-      message: "Successfully delete ClippingPathPrice",
+      message: "Successfully delete VectorPrice",
       data: result,
     });
   } catch (error) {
@@ -99,15 +99,15 @@ exports.deleteClippingPathPrice = async (req, res) => {
   }
 };
 
-exports.updateClippingPathPrice = async (req, res) => {
+exports.updateVectorPrice = async (req, res) => {
   try {
     const { id } = req.params;
-    const AboutUs = await ClippingPathPrice.findOne({ where: { Id: id } });
+    const AboutUs = await VectorPrice.findOne({ where: { Id: id } });
 
     if (!AboutUs) {
       return res.status(404).send({
         status: "fail",
-        message: "ClippingPathPrice not found",
+        message: "VectorPrice not found",
       });
     }
 
@@ -123,7 +123,7 @@ exports.updateClippingPathPrice = async (req, res) => {
       image: req.file === undefined ? undefined : req.file.path,
     };
 
-    const result = await ClippingPathPrice.update(data, {
+    const result = await VectorPrice.update(data, {
       where: { Id: id },
     });
 
@@ -136,7 +136,7 @@ exports.updateClippingPathPrice = async (req, res) => {
 
     res.status(200).send({
       status: "Success",
-      message: "Successfully updated ClippingPathPrice",
+      message: "Successfully updated VectorPrice",
       data: result,
     });
   } catch (error) {

@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const ClippingPathHowItWorks = require("../../controllers/clippingPathHowItWorks/clippingPathHowItWorks");
+const AutomotiveHowItWorks = require("../../controllers/automotiveHowItWorks/automotiveHowItWorks.controller");
 const auth = require("../../middlewares/auth");
 const { singleUpload } = require("../../middlewares/upload");
 
-router.post("/create", singleUpload, ClippingPathHowItWorks.createClippingPathHowItWorks);
-router.get("/", ClippingPathHowItWorks.getAllClippingPathHowItWorks);
-router.delete("/:id", ClippingPathHowItWorks.deleteClippingPathHowItWorks);
-router.patch("/:id",singleUpload, ClippingPathHowItWorks.updateClippingPathHowItWorks);
+router.post("/create", singleUpload, AutomotiveHowItWorks.createAutomotiveHowItWorks);
+router.get("/", AutomotiveHowItWorks.getAllAutomotiveHowItWorks);
+router.delete("/:id", AutomotiveHowItWorks.deleteAutomotiveHowItWorks);
+router.patch("/:id",singleUpload, AutomotiveHowItWorks.updateAutomotiveHowItWorks);
 
 module.exports = router;

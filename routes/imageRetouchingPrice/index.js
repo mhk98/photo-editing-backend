@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const clippingPathPrice = require("../../controllers/clippingPathPrice/clippingPathPrice.controller");
+const ImageRetouchingPrice = require("../../controllers/imageRetouchingPrice/imageRetouchingPrice.controller");
 const auth = require("../../middlewares/auth");
 const { singleUpload } = require("../../middlewares/upload");
 
-router.post("/create", singleUpload, clippingPathPrice.createClippingPathPrice);
-router.get("/", clippingPathPrice.getAllClippingPathPrice);
-router.delete("/:id", clippingPathPrice.deleteClippingPathPrice);
-router.patch("/:id", singleUpload, clippingPathPrice.updateClippingPathPrice);
+router.post("/create", singleUpload, ImageRetouchingPrice.createImageRetouchingPrice);
+router.get("/", ImageRetouchingPrice.getAllImageRetouchingPrice);
+router.delete("/:id", ImageRetouchingPrice.deleteImageRetouchingPrice);
+router.patch("/:id", singleUpload, ImageRetouchingPrice.updateImageRetouchingPrice);
 
 module.exports = router;

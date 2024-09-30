@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const ClippingPathProjects = require("../../controllers/clippingPathProjects/clippingPathProjects.controller");
+const ImageRestorationProjects = require("../../controllers/imageRestorationProjects/imageRestorationProjects.controller");
 const auth = require("../../middlewares/auth");
 const {  singleUpload } = require("../../middlewares/upload");
 
-router.post("/create", singleUpload, ClippingPathProjects.createClippingPathProjects);
-router.get("/", ClippingPathProjects.getAllClippingPathProjects);
-router.delete("/:id", ClippingPathProjects.deleteClippingPathProjects);
-router.patch("/:id", singleUpload, ClippingPathProjects.updateClippingPathProjects);
+router.post("/create", singleUpload, ImageRestorationProjects.createImageRestorationProjects);
+router.get("/", ImageRestorationProjects.getAllImageRestorationProjects);
+router.delete("/:id", ImageRestorationProjects.deleteImageRestorationProjects);
+router.patch("/:id", singleUpload, ImageRestorationProjects.updateImageRestorationProjects);
 
 module.exports = router;

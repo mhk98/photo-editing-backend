@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const ClippingPathHowItWorks = require("../../controllers/clippingPathHowItWorks/clippingPathHowItWorks");
+const ShadowCreationHowItWorks = require("../../controllers/shadowCreationHowItWorks/shadowCreationHowItWorks.controller");
 const auth = require("../../middlewares/auth");
 const { singleUpload } = require("../../middlewares/upload");
 
-router.post("/create", singleUpload, ClippingPathHowItWorks.createClippingPathHowItWorks);
-router.get("/", ClippingPathHowItWorks.getAllClippingPathHowItWorks);
-router.delete("/:id", ClippingPathHowItWorks.deleteClippingPathHowItWorks);
-router.patch("/:id",singleUpload, ClippingPathHowItWorks.updateClippingPathHowItWorks);
+router.post("/create", singleUpload, ShadowCreationHowItWorks.createShadowCreationHowItWorks);
+router.get("/", ShadowCreationHowItWorks.getAllShadowCreationHowItWorks);
+router.delete("/:id", ShadowCreationHowItWorks.deleteShadowCreationHowItWorks);
+router.patch("/:id",singleUpload, ShadowCreationHowItWorks.updateShadowCreationHowItWorks);
 
 module.exports = router;

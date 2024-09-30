@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const clippingPathTestimonial = require("../../controllers/clippingPathTestimonial/clippingPathTestimonial.controller");
+const ImageRestorationTestimonial = require("../../controllers/imageRestorationTestimonial/imageRestorationTestimonial.controller");
 const auth = require("../../middlewares/auth");
 const { singleUpload } = require("../../middlewares/upload");
 
-router.post("/create", singleUpload, clippingPathTestimonial.createClippingPathTestimonial);
-router.get("/", clippingPathTestimonial.getAllClippingPathTestimonial);
-router.delete("/:id", clippingPathTestimonial.deleteClippingPathTestimonial);
-router.patch("/:id", singleUpload, clippingPathTestimonial.updateClippingPathTestimonial);
+router.post("/create", singleUpload, ImageRestorationTestimonial.createImageRestorationTestimonial);
+router.get("/", ImageRestorationTestimonial.getAllImageRestorationTestimonial);
+router.delete("/:id", ImageRestorationTestimonial.deleteImageRestorationTestimonial);
+router.patch("/:id", singleUpload, ImageRestorationTestimonial.updateImageRestorationTestimonial);
 
 module.exports = router;

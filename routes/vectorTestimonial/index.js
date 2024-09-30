@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const clippingPathTestimonial = require("../../controllers/clippingPathTestimonial/clippingPathTestimonial.controller");
+const VectorTestimonial = require("../../controllers/vectorTestimonial/vectorTestimonial.controller");
 const auth = require("../../middlewares/auth");
 const { singleUpload } = require("../../middlewares/upload");
 
-router.post("/create", singleUpload, clippingPathTestimonial.createClippingPathTestimonial);
-router.get("/", clippingPathTestimonial.getAllClippingPathTestimonial);
-router.delete("/:id", clippingPathTestimonial.deleteClippingPathTestimonial);
-router.patch("/:id", singleUpload, clippingPathTestimonial.updateClippingPathTestimonial);
+router.post("/create", singleUpload, VectorTestimonial.createVectorTestimonial);
+router.get("/", VectorTestimonial.getAllVectorTestimonial);
+router.delete("/:id", VectorTestimonial.deleteVectorTestimonial);
+router.patch("/:id", singleUpload, VectorTestimonial.updateVectorTestimonial);
 
 module.exports = router;

@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const clippingPathPrice = require("../../controllers/clippingPathPrice/clippingPathPrice.controller");
+const ReflectionCreationPrice = require("../../controllers/reflectionCreationPrice/reflectionCreationPrice.controller");
 const auth = require("../../middlewares/auth");
 const { singleUpload } = require("../../middlewares/upload");
 
-router.post("/create", singleUpload, clippingPathPrice.createClippingPathPrice);
-router.get("/", clippingPathPrice.getAllClippingPathPrice);
-router.delete("/:id", clippingPathPrice.deleteClippingPathPrice);
-router.patch("/:id", singleUpload, clippingPathPrice.updateClippingPathPrice);
+router.post("/create", singleUpload, ReflectionCreationPrice.createReflectionCreationPrice);
+router.get("/", ReflectionCreationPrice.getAllReflectionCreationPrice);
+router.delete("/:id", ReflectionCreationPrice.deleteReflectionCreationPrice);
+router.patch("/:id", singleUpload, ReflectionCreationPrice.updateReflectionCreationPrice);
 
 module.exports = router;
