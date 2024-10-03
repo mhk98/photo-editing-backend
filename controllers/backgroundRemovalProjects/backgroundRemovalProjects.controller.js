@@ -7,9 +7,7 @@ exports.createBackgroundRemovalProjects = async (req, res) => {
 
     const data = { image }; // Store the image path in the data object
 
-    console.log(data);
-
-    console.log(data);
+    console.log('BgProjects',data);
 
     const result = await BackgroundRemovalProjects.create(data);
 
