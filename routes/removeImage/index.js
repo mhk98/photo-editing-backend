@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const RemoveImage = require("../../controllers/removeImage/removeImage.controller");
 const auth = require("../../middlewares/auth");
-const { doubleUpload } = require("../../middlewares/upload");
+const { doubleUpload, singleUpload } = require("../../middlewares/upload");
 
-router.post("/create", doubleUpload, RemoveImage.createRemoveImage);
+router.post("/create", singleUpload, RemoveImage.createRemoveImage);
 router.get("/", RemoveImage.getAllRemoveImage);
 router.delete("/:id", RemoveImage.deleteRemoveImage);
-router.patch("/:id", doubleUpload, RemoveImage.updateRemoveImage);
+router.patch("/:id", singleUpload, RemoveImage.updateRemoveImage);
 
 module.exports = router;

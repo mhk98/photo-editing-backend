@@ -3,10 +3,11 @@ const RemoveImage = db.removeImage;
 
 exports.createRemoveImage = async (req, res) => {
   try {
-    const { image1, image2 } = req.files || {};
+    const image = req.file ? req.file.path : ""; // Correctly assigning the image path
+
     const data = {
-      image1: image1 && image1[0] ? image1[0].path || "" : "",
-      image2: image2 && image2[0] ? image2[0].path || "" : "",
+     image
+
     };
 
     console.log(data);
@@ -113,11 +114,9 @@ exports.updateRemoveImage = async (req, res) => {
       });
     }
 
-    const { image1, image2 } = req.files || {};
-
+    const { image } = req.files || {};
     const data = {
-      image1: image1 && image1[0] ? image1[0].path : banner.image1,
-      image2: image2 && image2[0] ? image2[0].path : banner.image2,
+      image: image && image[0] ? image[0].path || "" : "",
     };
 
     const result = await RemoveImage.update(data, {

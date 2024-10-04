@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const homeSlider = require("../../controllers/homeSlider/homeSlider.controller");
 const auth = require("../../middlewares/auth");
-const { quintupleUpload } = require("../../middlewares/upload");
+const {  twelveUpload } = require("../../middlewares/upload");
 
-router.post("/create", quintupleUpload, homeSlider.createHomeSlider);
+router.post("/create", twelveUpload, homeSlider.createHomeSlider);
 router.get("/", homeSlider.getAllHomeSlider);
 router.delete("/:id", homeSlider.deleteHomeSlider);
-router.patch("/:id", quintupleUpload, homeSlider.updateHomeSlider);
+router.patch("/:id", twelveUpload, homeSlider.updateHomeSlider);
 
 module.exports = router;

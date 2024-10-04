@@ -3,14 +3,15 @@ const Testimonial = db.testimonial;
 
 exports.createTestimonial = async (req, res) => {
   try {
-    const { image1, image2, image3 } = req.files || {};
+    const { image1, image2, image3 } = req.files;
+    
     const data = {
       image1: image1 && image1[0] ? image1[0].path || "" : "",
       image2: image2 && image2[0] ? image2[0].path || "" : "",
       image3: image3 && image3[0] ? image3[0].path || "" : "",
     };
 
-    console.log(data);
+   
 
     const result = await Testimonial.create(data);
 
@@ -114,14 +115,23 @@ exports.updateTestimonial = async (req, res) => {
       });
     }
 
-    const { image1, image2, image3 } = req.files || {};
+    const { image1, image2, image3 } = req.files;
+
+    // const data = {
+    //   image1: image1 && image1[0] ? image1[0].path : banner.image1,
+    //   image2: image2 && image2[0] ? image2[0].path : banner.image2,
+    //   image3: image3 && image3[0] ? image3[0].path : banner.image3,
+    // };
+
 
     const data = {
-      image1: image1 && image1[0] ? image1[0].path : banner.image1,
-      image2: image2 && image2[0] ? image2[0].path : banner.image2,
-      image3: image3 && image3[0] ? image3[0].path : banner.image3,
+      image1: image1 && image1[0].path,
+      image2: image2 && image2[0].path,
+      image3: image3 && image3[0].path,
     };
 
+  
+ 
     const result = await Testimonial.update(data, {
       where: { Id: id },
     });

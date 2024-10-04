@@ -30,6 +30,34 @@ module.exports = (sequelize, DataTypes, Sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    image6: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image7: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image8: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image9: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image10: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image11: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image12: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   });
 
   return HomeSlider;

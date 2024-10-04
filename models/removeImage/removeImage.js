@@ -10,14 +10,11 @@ module.exports = (sequelize, DataTypes, Sequelize) => {
       allowNull: false,
     },
 
-    image1: {
+    image: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    image2: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+   
   });
 
   return RemoveImage;

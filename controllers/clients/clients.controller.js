@@ -3,7 +3,7 @@ const Clients = db.clients;
 
 exports.createClients = async (req, res) => {
   try {
-    const { image1, image2, image3, image4, image5, image6 } = req.files || {};
+    const { image1, image2, image3, image4, image5, image6 } = req.files ;
     const data = {
       image1: image1 && image1[0] ? image1[0].path || "" : "",
       image2: image2 && image2[0] ? image2[0].path || "" : "",

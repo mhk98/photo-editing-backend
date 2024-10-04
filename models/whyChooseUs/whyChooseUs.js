@@ -18,6 +18,18 @@ module.exports = (sequelize, DataTypes, Sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    image3: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image4: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image5: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   });
 
   return WhyChooseUs;
