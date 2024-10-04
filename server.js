@@ -1,46 +1,22 @@
 const express = require("express");
-const app = express();
 const cors = require("cors");
-const routes = require("./routes");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-var http = require("http");
+const http = require("http");
+const routes = require("./routes");
 require("./models");
 require("dotenv").config();
 const shortid = require("shortid");
 
-// Apply CORS Middleware Once
-app.use(
-  cors({
-    credentials: true,
-    origin: [
-      "http://localhost:3000", 
-      "http://localhost:5000", 
-      "https://digital-agency-backend.onrender.com/"
-    ],
-  })
-);
+const app = express();
 
+// Apply CORS Middleware
+app.use(cors({ origin: true, credentials: true }));
 
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send({ message: 'Something broke!' });
-});
-
-
-
-app.use(express.json());
-app.use(cookieParser());
-app.use("/api/v1", routes);
-
-// Port initializing
-const port = 5000;
-
-// Parse requests of content-type - application/x-www-form-urlencoded
+// Middleware for parsing request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// Parse requests of content-type - application/json
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 // Static image folder
 app.use("/images", express.static("images"));
@@ -50,14 +26,25 @@ app.get("/", (req, res) => {
   res.send("Server is running");
 });
 
+// API routes
+app.use("/api/v1", routes);
+
 // Catch-all route for handling API not found
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404).json({ error: "API not found" });
 });
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send({ message: 'Something broke!' });
+});
+
+// Server setup
+const port = process.env.PORT || 5000; // Use environment variable if available
 const server = http.createServer(app);
 
-// Listening server
-server.listen(port, () =>
-  console.log(`Server is listening at http://localhost:${port}`)
-);
+// Start listening
+server.listen(port, () => {
+  console.log(`Server is listening at http://localhost:${port}`);
+});
