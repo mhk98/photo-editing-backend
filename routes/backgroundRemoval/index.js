@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const BackgroundRemoval = require("../../controllers/backgroundRemoval/backgroundRemoval.controller");
 const auth = require("../../middlewares/auth");
-const { singleUpload } = require("../../middlewares/upload");
+const { doubleUpload } = require("../../middlewares/upload");
 
-router.post("/create", singleUpload, BackgroundRemoval.createBackgroundRemoval);
+router.post("/create", doubleUpload, BackgroundRemoval.createBackgroundRemoval);
 router.get("/", BackgroundRemoval.getAllBackgroundRemoval);
 router.delete("/:id", BackgroundRemoval.deleteBackgroundRemoval);
-router.patch("/:id",singleUpload, BackgroundRemoval.updateBackgroundRemoval);
+router.patch("/:id",doubleUpload, BackgroundRemoval.updateBackgroundRemoval);
 
 module.exports = router;

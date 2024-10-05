@@ -3,11 +3,13 @@ const ReflectionCreation = db.reflectionCreation;
 
 exports.createReflectionCreation = async (req, res) => {
   try {
-    const image = req.file ? req.file.path : ""; // Correctly assigning the image path
+    const { image1, image2} = req.files || {};
 
-    const data = { image }; // Store the image path in the data object
-
-    console.log(data);
+    const data = {
+      image1: image1 && image1[0] ? image1[0].path || "" : "",
+      image2: image2 && image2[0] ? image2[0].path || "" : "",
+    
+    };
 
     const result = await ReflectionCreation.create(data);
 
