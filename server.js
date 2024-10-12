@@ -41,10 +41,10 @@ app.use((err, req, res, next) => {
 });
 
 // Server setup
-const port = process.env.PORT || 5000; // Use environment variable if available
+const PORT = process.env.PORT || 5000;
 const server = http.createServer(app);
 
 // Start listening
-server.listen(port, () => {
-  console.log(`Server is listening at http://localhost:${port}`);
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is listening at http://localhost:${PORT}`);
 });
