@@ -10,17 +10,15 @@ const sequelize = new Sequelize(
   `${process.env.DB_USER}`,
   `${process.env.DB_PASSWORD}`,
   {
-    // host: "localhost",
-    // host: "mysql-34ea360f-mohsinkabirseo-6632.i.aivencloud.com",
-      host:'82.112.226.90',
+      // host:'82.112.226.90',
     // host: "sql.freedb.tech",
-    // host: 'sql6.freesqldatabase.com',
+    host:"mysql-34ea360f-mohsinkabirseo-6632.i.aivencloud.com",
     dialect: "mysql",
     pool: { max: 5, min: 0, idle: 10000 },
     logging: false,
     timezone: "+06:00",
-    // port: 25958,
-    port: 3306
+    // port: 3306
+    port:25958
   }
 );
 
