@@ -9,28 +9,29 @@ module.exports = (sequelize, DataTypes, Sequelize) => {
         type: DataTypes.INTEGER(10),
         primaryKey: true,
         autoIncrement: true,
-        allowNull: true,
+        allowNull: false,
+
       },
 
       Name: {
         type: DataTypes.STRING(30),
-        allowNull: false,
+        allowNull: true,
       },
 
       Email: {
         type: DataTypes.STRING(64),
-        allowNull: false,
+        allowNull: true,
         unique: true,
         // required: [true, "Email address is required"],
       },
       Password: {
         type: DataTypes.STRING(64),
-        allowNull: false,
+        allowNull: true,
         unique: true,
       },
       image: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
 
       role: {

@@ -8,55 +8,56 @@ module.exports = (sequelize, DataTypes, Sequelize) => {
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
+
     },
 
     image1: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     image2: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     image3: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     image4: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     image5: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     image6: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     image7: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     image8: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     image9: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     image10: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     image11: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     image12: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
   });
 

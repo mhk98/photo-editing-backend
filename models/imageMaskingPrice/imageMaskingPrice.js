@@ -8,35 +8,36 @@ module.exports = (sequelize, DataTypes, Sequelize) => {
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
+
     },
 
     image: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     price: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     feature1: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     feature2: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     feature3: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     feature4: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
   });
 

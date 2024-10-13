@@ -7,12 +7,12 @@ module.exports = (sequelize, DataTypes, Sequelize) => {
       type: DataTypes.INTEGER(10),
       primaryKey: true,
       autoIncrement: true,
-      allowNull: false,
+      allowNull: true,
     },
 
     image: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
   });
 
