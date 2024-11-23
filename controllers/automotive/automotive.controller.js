@@ -117,8 +117,8 @@ exports.updateAutomotive = async (req, res) => {
 
     const { image1, image2 } = req.files || {};
     const data = {
-      image1: image1 && image1[0] ? image1[0].path : banner.image1,
-      image2: image2 && image2[0] ? image2[0].path : banner.image2,
+      image1: image1 && image1[0].path,
+      image2: image2 && image2[0].path,
       
     };
 

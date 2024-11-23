@@ -114,11 +114,12 @@ exports.updateRemoveImage = async (req, res) => {
       });
     }
 
-    const { image } = req.files || {};
-    const data = {
-      image: image && image[0] ? image[0].path || "" : "",
-    };
+    const image = req.file ? req.file.path : ""; // Correctly assigning the image path
 
+    const data = { image }; // Store the image path in the data object
+
+    console.log(data); 
+    
     const result = await RemoveImage.update(data, {
       where: { Id: id },
     });

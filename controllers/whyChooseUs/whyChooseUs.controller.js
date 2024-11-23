@@ -13,26 +13,6 @@ exports.createWhyChooseUs = async (req, res) => {
       image5: image5 && image5[0] ? image5[0].path : null,
     };
 
-    // Check for duplicates before creating
-    const existingEntries = await WhyChooseUs.findAll({
-      where: {
-        [db.Sequelize.Op.or]: [
-          { image1: data.image1 },
-          { image2: data.image2 },
-          { image3: data.image3 },
-          { image4: data.image4 },
-          { image5: data.image5 },
-        ].filter(Boolean), // Filter out null values
-      },
-    });
-
-    if (existingEntries.length > 0) {
-      return res.status(400).send({
-        status: "fail",
-        message: "One or more images already exist",
-      });
-    }
-
     const result = await WhyChooseUs.create(data);
 
     res.status(201).send({
@@ -111,33 +91,13 @@ exports.updateWhyChooseUs = async (req, res) => {
     const { image1, image2, image3, image4, image5 } = req.files || {};
 
     const data = {
-      image1: image1 && image1[0] ? image1[0].path : banner.image1,
-      image2: image2 && image2[0] ? image2[0].path : banner.image2,
-      image3: image3 && image3[0] ? image3[0].path : banner.image3,
-      image4: image4 && image4[0] ? image4[0].path : banner.image4,
-      image5: image5 && image5[0] ? image5[0].path : banner.image5,
+      image1: image1 && image1[0].path,
+      image2: image2 && image2[0].path,
+      image3: image3 && image3[0].path,
+      image4: image4 && image4[0].path,
+      image5: image5 && image5[0].path,
     };
 
-    // Check for duplicates before updating
-    const existingEntries = await WhyChooseUs.findAll({
-      where: {
-        Id: { [db.Sequelize.Op.ne]: id }, // Exclude current entry
-        [db.Sequelize.Op.or]: [
-          { image1: data.image1 },
-          { image2: data.image2 },
-          { image3: data.image3 },
-          { image4: data.image4 },
-          { image5: data.image5 },
-        ].filter(Boolean), // Filter out null values
-      },
-    });
-
-    if (existingEntries.length > 0) {
-      return res.status(400).send({
-        status: "fail",
-        message: "One or more images already exist",
-      });
-    }
 
     const result = await WhyChooseUs.update(data, {
       where: { Id: id },

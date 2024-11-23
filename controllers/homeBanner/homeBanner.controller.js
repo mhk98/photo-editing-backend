@@ -137,33 +137,14 @@ exports.updateHomeBanner = async (req, res) => {
     }
 
     const { image1, image2, image3, image4, image5 } = req.files || {};
+    console.log(req.files)
     const newData = {
-      image1: image1 && image1[0] ? image1[0].path : banner.image1,
-      image2: image2 && image2[0] ? image2[0].path : banner.image2,
-      image3: image3 && image3[0] ? image3[0].path : banner.image3,
-      image4: image4 && image4[0] ? image4[0].path : banner.image4,
-      image5: image5 && image5[0] ? image5[0].path : banner.image5,
+      image1: image1 && image1[0].path,
+      image2: image2 && image2[0].path,
+      image3: image3 && image3[0].path,
+      image4: image4 && image4[0].path,
+      image5: image5 && image5[0].path,
     };
-
-    // Check if the new images are unique
-    const existingBanners = await HomeBanner.findAll({
-      where: {
-        [db.Sequelize.Op.or]: [
-          { image1: newData.image1 },
-          { image2: newData.image2 },
-          { image3: newData.image3 },
-          { image4: newData.image4 },
-          { image5: newData.image5 },
-        ],
-      },
-    });
-
-    if (existingBanners.length > 0) {
-      return res.status(400).send({
-        status: "fail",
-        message: "One or more images already exist",
-      });
-    }
 
     const result = await HomeBanner.update(newData, {
       where: { Id: id },

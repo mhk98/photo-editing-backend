@@ -34,13 +34,18 @@ const StunningQuality = db.stunningQuality;
 
 exports.createStunningQuality = async (req, res) => {
   try {
-    const { image1, image2, image3, image4, image5 } = req.files || {};
+    const { image1, image2, image3, image4, image5, image6, image7, image8, image9, image10 } = req.files || {};
     const imagePaths = [
       image1 && image1[0] ? image1[0].path || "" : "",
       image2 && image2[0] ? image2[0].path || "" : "",
       image3 && image3[0] ? image3[0].path || "" : "",
       image4 && image4[0] ? image4[0].path || "" : "",
       image5 && image5[0] ? image5[0].path || "" : "",
+      image6 && image6[0] ? image6[0].path || "" : "",
+      image7 && image7[0] ? image7[0].path || "" : "",
+      image8 && image8[0] ? image8[0].path || "" : "",
+      image9 && image9[0] ? image9[0].path || "" : "",
+      image10 && image10[0] ? image10[0].path || "" : "",
     ];
 
     // Check for duplicates in the database
@@ -66,6 +71,11 @@ exports.createStunningQuality = async (req, res) => {
       image3: image3 && image3[0] ? image3[0].path || "" : "",
       image4: image4 && image4[0] ? image4[0].path || "" : "",
       image5: image5 && image5[0] ? image5[0].path || "" : "",
+      image6: image6 && image6[0] ? image6[0].path || "" : "",
+      image7: image7 && image7[0] ? image7[0].path || "" : "",
+      image8: image8 && image8[0] ? image8[0].path || "" : "",
+      image9: image9 && image9[0] ? image9[0].path || "" : "",
+      image10: image10 && image10[0] ? image10[0].path || "" : "",
     };
 
     const result = await StunningQuality.create(data);
@@ -177,15 +187,20 @@ exports.updateStunningQuality = async (req, res) => {
     }
 
     // Destructure new images from the request files
-    const { image1, image2, image3, image4, image5 } = req.files || {};
+    const { image1, image2, image3, image4, image5, image6, image7, image8, image9, image10 } = req.files || {};
 
     // Prepare updated data
     const data = {
-      image1: image1 && image1[0] ? image1[0].path : stunningQuality.image1,
-      image2: image2 && image2[0] ? image2[0].path : stunningQuality.image2,
-      image3: image3 && image3[0] ? image3[0].path : stunningQuality.image3,
-      image4: image4 && image4[0] ? image4[0].path : stunningQuality.image4,
-      image5: image5 && image5[0] ? image5[0].path : stunningQuality.image5,
+      image1: image1 && image1[0].path,
+      image2: image2 && image2[0].path,
+      image3: image3 && image3[0].path,
+      image4: image4 && image4[0].path,
+      image5: image5 && image5[0].path,
+      image6: image6 && image6[0].path,
+      image7: image7 && image7[0].path,
+      image8: image8 && image8[0].path,
+      image9: image9 && image9[0].path,
+      image10: image10 && image10[0].path,
     };
 
     // Check for duplicates before updating

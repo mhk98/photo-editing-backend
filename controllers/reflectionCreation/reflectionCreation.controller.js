@@ -113,11 +113,12 @@ exports.updateReflectionCreation = async (req, res) => {
       });
     }
 
-    const image = req.file ? req.file.path : ""; // Correctly assigning the image path
-
-    const data = { image }; // Store the image path in the data object
-
-    console.log(data);
+    const { image1, image2 } = req.files || {};
+    const data = {
+      image1: image1 && image1[0].path,
+      image2: image2 && image2[0].path,
+      
+    };
 
     const result = await ReflectionCreation.update(data, {
       where: { Id: id },

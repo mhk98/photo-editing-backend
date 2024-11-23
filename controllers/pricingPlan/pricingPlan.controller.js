@@ -118,10 +118,11 @@ exports.updatePricingPlan = async (req, res) => {
     const { image1, image2, image3, image4 } = req.files || {};
 
     const data = {
-      image1: image1 && image1[0] ? image1[0].path : banner.image1,
-      image2: image2 && image2[0] ? image2[0].path : banner.image2,
-      image3: image3 && image3[0] ? image3[0].path : banner.image3,
-      image4: image4 && image4[0] ? image4[0].path : banner.image4,
+      image1: image1 && image1[0].path,
+      image2: image2 && image2[0].path,
+      image3: image3 && image3[0].path,
+      image4: image4 && image4[0].path,
+     
     };
 
     const result = await PricingPlan.update(data, {
