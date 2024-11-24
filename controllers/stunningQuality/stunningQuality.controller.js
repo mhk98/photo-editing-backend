@@ -78,6 +78,8 @@ exports.createStunningQuality = async (req, res) => {
       image10: image10 && image10[0] ? image10[0].path || "" : "",
     };
 
+    console.log('Imagedata', data)  
+
     const result = await StunningQuality.create(data);
 
     res.status(200).send({
@@ -202,6 +204,7 @@ exports.updateStunningQuality = async (req, res) => {
       image9: image9 && image9[0].path,
       image10: image10 && image10[0].path,
     };
+    console.log('Imagedata', data)  
 
     // Check for duplicates before updating
     for (const imagePath of Object.values(data)) {

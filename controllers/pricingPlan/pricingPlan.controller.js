@@ -5,10 +5,11 @@ exports.createPricingPlan = async (req, res) => {
   try {
     const { image1, image2, image3, image4 } = req.files || {};
     const data = {
-      image1: image1 && image1[0] ? image1[0].path || "" : "",
-      image2: image2 && image2[0] ? image2[0].path || "" : "",
-      image3: image3 && image3[0] ? image3[0].path || "" : "",
-      image4: image4 && image4[0] ? image4[0].path || "" : "",
+      image1: image1 && image1[0].path,
+      image2: image2 && image2[0].path,
+      image3: image3 && image3[0].path,
+      image4: image4 && image4[0].path,
+     
     };
 
     console.log(data);

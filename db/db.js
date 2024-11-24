@@ -12,14 +12,14 @@ const sequelize = new Sequelize(
   {
       // host:'82.112.226.90',
     // host: "sql.freedb.tech",
-    // host:"mysql-34ea360f-mohsinkabirseo-6632.i.aivencloud.com",
-    host:"localhost",
+    host:"mysql-34ea360f-mohsinkabirseo-6632.i.aivencloud.com",
+    // host:"localhost",
     dialect: "mysql",
     pool: { max: 5, min: 0, idle: 10000 },
     logging: false,
     timezone: "+06:00",
-    port: 3306
-    // port:25958
+    // port: 3306
+    port:25958
   }
 );
 

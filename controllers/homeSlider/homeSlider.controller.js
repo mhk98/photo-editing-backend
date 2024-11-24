@@ -143,6 +143,10 @@ exports.deleteHomeSlider = async (req, res) => {
 exports.updateHomeSlider = async (req, res) => {
   try {
     const { id } = req.params;
+    console.log(id)
+    if(!id){
+      return res.send("Id not found")
+    }
     const slider = await HomeSlider.findOne({ where: { Id: id } });
 
     if (!slider) {
@@ -169,32 +173,6 @@ exports.updateHomeSlider = async (req, res) => {
       image12: image12 && image12[0] ? image12[0].path : slider.image12,
     };
 
-    // Check for existing images
-    const existingBanners = await HomeSlider.findAll({
-      where: {
-        [db.Sequelize.Op.or]: [
-          { image1: newData.image1 },
-          { image2: newData.image2 },
-          { image3: newData.image3 },
-          { image4: newData.image4 },
-          { image5: newData.image5 },
-          { image6: newData.image6 },
-          { image7: newData.image7 },
-          { image8: newData.image8 },
-          { image9: newData.image9 },
-          { image10: newData.image10 },
-          { image11: newData.image11 },
-          { image12: newData.image12 },
-        ],
-      },
-    });
-
-    if (existingBanners.length > 0) {
-      return res.status(400).send({
-        status: "fail",
-        message: "One or more images already exist",
-      });
-    }
 
     const result = await HomeSlider.update(newData, {
       where: { Id: id },
