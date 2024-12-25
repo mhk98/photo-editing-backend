@@ -51,7 +51,7 @@ const sequelize = new Sequelize(
     // host: '82.112.226.90',
     // host: "sql.freedb.tech",
     // host: "mysql-34ea360f-mohsinkabirseo-6632.i.aivencloud.com",
-    host: "localhost",
+    host: "127.0.0.1",
     dialect: "mysql",
     pool: { max: 5, min: 0, idle: 10000 },
     logging: false,
