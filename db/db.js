@@ -44,7 +44,7 @@
 const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize(
-  'pixamossdb', // Replace with your actual database name
+  'pixamoss_db', // Replace with your actual database name
   'pixamoss', // Replace with your actual database user
   'Pixamoss@123', // Replace with your actual database password
   {
